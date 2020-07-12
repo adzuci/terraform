@@ -21,6 +21,7 @@ module "eks-cluster" {
   source           = "terraform-aws-modules/eks/aws"
   version          = "8.0.0"
   cluster_name     = var.eks_cluster_name
+  cluster_version  = "1.15"
   subnets          = module.eks-network.controller_subnet_ids
   vpc_id           = var.vpc_id
   manage_aws_auth  = true

@@ -11,7 +11,7 @@ https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-a
 ## Install Requirements
 
 ```
-brew install awscli terraform warrensbox/tap/tfswitch
+brew install awscli terraform warrensbox/tap/tfswitch kubectl
 ```
 
 Note: This README is macOS specific, feel free to submit a PR with Linux instructions.
@@ -37,7 +37,6 @@ cat << EOF > ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Packa
         "Package Control",
         "Python Flake8 Lint",
         "Python Improved",
-        "SideBarGit",
         "SublimeLinter-contrib-terraform",
 		"Terrafmt"
     ]
@@ -61,3 +60,17 @@ EOF
 
 1. Run `terraform plan`
 2. Run `terraform apply`
+
+## Moving State to S3
+
+1. Uncomment out the `backend "s3"` block from `plans/dyhedral/aws.tf`.
+2. Run `terraform init`
+
+## Authenticate to EKS
+
+1. Run `aws eks update-kubeconfig --name prod-dyhedral-eks`
+2. Run `kubectl version`
+
+# Things To Consider
+
+- The EKS cluster defined here may be a bit convoluted and could be replaced with https://github.com/cloudposse/terraform-aws-eks-cluster

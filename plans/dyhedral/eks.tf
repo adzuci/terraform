@@ -58,7 +58,7 @@ module "eks-cluster" {
     {
       name                  = "${var.environment}-${var.deployment}-eks"
       ami_id                = "ami-087a82f6b78a07557"
-      instance_type         = "t3.micro"
+      instance_type         = "t3.small"
       asg_max_size          = 5
       autoscaling_enabled   = true
       protect_from_scale_in = true

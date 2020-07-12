@@ -90,7 +90,6 @@ resource "aws_route_table_association" "worker_route_association" {
 resource "aws_route_table" "worker_route_tables" {
   vpc_id           = var.vpc_id
   count            = length(var.availability_zones)
-  propagating_vgws = var.vpn_gateway_ids
 
   tags = {
     Name        = "${var.cluster_name}-worker-route-table-${element(var.availability_zones, count.index)}"

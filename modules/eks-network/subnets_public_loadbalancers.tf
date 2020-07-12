@@ -91,7 +91,6 @@ resource "aws_route_table_association" "public_loadbalancer_route_table_associat
 
 resource "aws_route_table" "public_load_balancer_subnet_routing_tables" {
   vpc_id           = var.vpc_id
-  propagating_vgws = var.vpn_gateway_ids
 
   tags = {
     Name        = "${var.cluster_name}-public-route-table"

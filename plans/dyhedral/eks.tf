@@ -3,6 +3,7 @@ variable "eks_azs" { type = list(string) }
 variable "eks_worker_cidrs" { type = list(string) }
 variable "eks_controller_cidrs" { type = list(string) }
 variable "eks_public_loadbalancer_cidrs" { type = list(string) }
+variable "eks_internet_gateway" { type = string }
 
 module "eks-network" {
   source                              = "../../modules/eks-network"
@@ -13,7 +14,6 @@ module "eks-network" {
   availability_zones                  = var.eks_azs
 
   vpc_id              = var.vpc_id
-  vpn_gateway_ids     = var.propagating_vgws
   internet_gateway_id = var.eks_internet_gateway
 }
 

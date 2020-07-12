@@ -1,4 +1,4 @@
-variable "vpc_name" {
+:variable "vpc_name" {
   type = string
 }
 
@@ -25,6 +25,11 @@ variable "vpc_cidr_block" {
 variable "public_cidrs" {
   type        = string
   description = "subnet cidrs for public loadbalancers"
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "ID of the VPC"
 }
 
 module "vpc" {

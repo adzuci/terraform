@@ -33,13 +33,13 @@ module "eks-cluster" {
 
   map_roles = [
     {
-      rolearn  = "arn:aws:iam::${var.aws_account_id}:role/blackwell-prod-admin"
-      username = "arn:aws:iam::${var.aws_account_id}:role/blackwell-prod-admin"
+      rolearn  = "arn:aws:iam::${var.aws_account_id}:role/dyhedral-prod-admin"
+      username = "arn:aws:iam::${var.aws_account_id}:role/dyhedral-prod-admin"
       groups   = ["system:masters"]
     },
     {
-      rolearn  = "arn:aws:iam::${var.aws_account_id}:role/blackwell-prod-admin-atlantis"
-      username = "arn:aws:iam::${var.aws_account_id}:role/blackwell-prod-admin-atlantis"
+      rolearn  = "arn:aws:iam::${var.aws_account_id}:role/dyhedral-prod-admin-atlantis"
+      username = "arn:aws:iam::${var.aws_account_id}:role/dyhedral-prod-admin-atlantis"
       groups   = ["system:masters"]
     },
     {

@@ -14,13 +14,14 @@ provider "aws" {
 terraform {
   required_version = ">= 0.12"
 
-  backend "s3" {
-    encrypt                 = true
-    bucket                  = "blackwell-prod-terraform-state"
-    key                     = "plans/blackwell"
-    # dynamodb_table          = "terraform-state-lock"
-    region                  = "us-east-1"
-    # role_arn                = "arn:aws:iam::${var.aws_account_id}:role/blackwell-prod-admin-atlantis"
-    skip_metadata_api_check = true
-  }
+#  backend "s3" {
+#    encrypt                 = true
+#    bucket                  = "dyhedral-prod-terraform-state"
+#    key                     = "plans/dyhedral"
+#    # dynamodb_table          = "terraform-state-lock"
+#    region                  = "us-east-1"
+#    # role_arn                = "arn:aws:iam::${var.aws_account_id}:role/dyhedral-prod-admin-atlantis"
+#    skip_metadata_api_check = true
+#  }
+
 }

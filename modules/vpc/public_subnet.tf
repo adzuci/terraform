@@ -1,7 +1,7 @@
 ###############################################################################
 # These are the resources related to the public subnets. The subnets serve two
 # main purposes.  They are where the NAT gateways reside and they are also
-# where we expect to put any ELBs that are meant to be public facing.
+# where we expect to put any load balancerss that are meant to be public facing.
 ###############################################################################
 
 # A comma seperated list of

@@ -17,5 +17,5 @@ variable "vpc_cidr_block" {
 # A comma separate list of AZs
 # this VPC has traffic in.
 variable "azs" {
-  type = string
+  type = list(string)
 }

@@ -70,13 +70,13 @@ resource "aws_network_acl_rule" "public_egress_rule" {
 resource "aws_subnet" "public" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = element(split(",", var.public_cidrs), count.index)
-  availability_zone       = element(split(",", var.azs), count.index)
+  availability_zone       = element(var.azs, count.index)
   map_public_ip_on_launch = true
 
-  count = length(split(",", var.azs))
+  count = length(var.azs)
 
   tags = {
-    Name        = "${var.vpc_name}-public-subnet-${element(split(",", var.azs), count.index)}"
+    Name        = "${var.vpc_name}-public-subnet-${element(var.azs, count.index)}"
     environment = var.environment
     deployment  = var.deployment
   }
@@ -85,13 +85,12 @@ resource "aws_subnet" "public" {
 resource "aws_route_table_association" "public_route_association" {
   subnet_id      = element(aws_subnet.public.*.id, count.index)
   route_table_id = aws_route_table.public_route_table.id
-  count          = length(split(",", var.azs))
+  count          = length(var.azs)
 }
 
 # Public Route Table
 resource "aws_route_table" "public_route_table" {
   vpc_id           = aws_vpc.vpc.id
-  propagating_vgws = [aws_vpn_gateway.vpn_gw.id]
 
   tags = {
     Name        = "${var.vpc_name}-public-route-table"

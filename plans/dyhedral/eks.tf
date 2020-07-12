@@ -10,7 +10,6 @@ module "eks-network" {
   worker_subnet_cidrs                 = var.eks_worker_cidrs
   controller_cidrs                    = var.eks_controller_cidrs
   public_loadbalancer_subnet_cidrs    = var.eks_public_loadbalancer_cidrs
-  internal_load_balancer_subnet_cidrs = var.eks_internal_loadbalancer_cidrs
   availability_zones                  = var.eks_azs
 
   vpc_id              = var.vpc_id
